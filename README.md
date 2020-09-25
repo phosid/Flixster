@@ -7,21 +7,12 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 ### User Stories
 
 #### REQUIRED (10pts)
-- [ ] (5pts) User can tap a cell to see more details about a particular movie.
-- [ ] (5pts) User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
+- [x] (5pts) User can tap a cell to see more details about a particular movie.
+- [x] (5pts) User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
 
 #### BONUS
-- [ ] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
-- [ ] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
-
-### App Walkthrough GIF
-`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
-
-<img src="YOUR_GIF_URL_HERE" width=250><br>
-
-### Notes
-Describe any challenges encountered while building the app.
----
+- [x] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
+- [x] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ## Flixster Part 1
 
@@ -37,9 +28,12 @@ Describe any challenges encountered while building the app.
 - [x] (1pt) Run your app on a real device.
 
 ### App Walkthrough GIF
-`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
-
 <img src="YOUR_GIF_URL_HERE" width=250><br>
 
 ### Notes
 Some challenges I faced while building the app:
+- I forgot to rename the view controllers after creating them so identifying them would be hard.
+- For some labels I created, I forgot to create the corresponding outlet for it.
+- Getting the API endpoint that I wanted for my "favorites" tab view required some research into the movie database API documentation.
+- Working with WebView was very new to me, so I consulted a lot of the Apple Developer documentation and played around with loading basic pages first, then delved into getting the required endpoint to load the youtube trailer.
+- When I first created the grid view, I ran into a problem where my poster images were very small, and it turns out that was an easy fix when I changed "Estimate Size" to None.
