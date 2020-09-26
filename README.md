@@ -37,10 +37,11 @@ Some challenges I faced while building the app:
 - Getting the API endpoint that I wanted for my "favorites" tab view required some research into the movie database API documentation.
 - Working with WebView was very new to me, so I consulted a lot of the Apple Developer documentation and played around with loading basic pages first, then delved into getting the required endpoint to load the youtube trailer.
 - When I first created the grid view, I ran into a problem where my poster images were very small, and it turns out that was an easy fix when I changed "Estimate Size" to None.
-- Messing around with auto layout was a challenge for me, but after reading a few documents and watching a few videos, it finally made sense.
+- Messing around with auto layout was a challenge for me, but after reading a few documents and watching a few videos, I added some constraints, but I'm pretty sure there's something messed up about it still.
 
 ### Things to improve on:
 - To view the youtube trailer, a user had to click on the poster only for the table view. If a user clicked on a poster in the details page from a grid view, nothing would pop up. Implementing that would make the app more uniform.
+- I also think improving the auto layout features would make things better placed on other devices.
 
 ### How to run the application: 
 - I used Cocoapods to set the images using the AlamofireImage library. Thus, when you download the files, you will have to run the app by clicking on "flixster.xcworkspace".
