@@ -1,10 +1,18 @@
-# Flixster
+# FLiXSTER
 
 Flixster is an app that allows users to browse movies from the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-📝 `NOTE - PASTE PART 2 SNIPPET HERE:` Paste the README template for part 2 of this assignment here at the top. This will show a history of your development process, which users stories you completed and how your app looked and functioned at each step.
+## Flixster Part 2
 
----
+### User Stories
+
+#### REQUIRED (10pts)
+- [x] (5pts) User can tap a cell to see more details about a particular movie.
+- [x] (5pts) User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
+
+#### BONUS
+- [x] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
+- [x] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ## Flixster Part 1
 
@@ -20,9 +28,20 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 - [x] (1pt) Run your app on a real device.
 
 ### App Walkthrough GIF
-`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
-
 <img src="YOUR_GIF_URL_HERE" width=250><br>
 
 ### Notes
-Describe any challenges encountered while building the app.
+Some challenges I faced while building the app:
+- I forgot to rename the view controllers after creating them so identifying them would be hard.
+- For some labels I created, I forgot to create the corresponding outlet for it.
+- Getting the API endpoint that I wanted for my "favorites" tab view required some research into the movie database API documentation.
+- Working with WebView was very new to me, so I consulted a lot of the Apple Developer documentation and played around with loading basic pages first, then delved into getting the required endpoint to load the youtube trailer.
+- When I first created the grid view, I ran into a problem where my poster images were very small, and it turns out that was an easy fix when I changed "Estimate Size" to None.
+- Messing around with auto layout was a challenge for me, but after reading a few documents and watching a few videos, I added some constraints, but I'm pretty sure there's something messed up about it still.
+
+### Things to improve on:
+- To view the youtube trailer, a user had to click on the poster only for the table view. If a user clicked on a poster in the details page from a grid view, nothing would pop up. Implementing that would make the app more uniform.
+- I also think improving the auto layout features would make things better placed on other devices.
+
+### How to run the application: 
+- I used Cocoapods to set the images using the AlamofireImage library. Thus, when you download the files, you will have to run the app by clicking on "flixster.xcworkspace".
