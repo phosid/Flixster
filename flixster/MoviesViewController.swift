@@ -8,29 +8,12 @@
 
 import UIKit
 import AlamofireImage
-
-class Movie {
-    var movieName: String!
-    var descriptionLabel: String!
-    var dateReleased: String!
-    var ratingLabel: Double!
-    
-    init(prName:String, prDescription:String, prDateReleased:String, prRating:Double) {
-        self.movieName = prName
-        self.descriptionLabel = prDescription
-        self.dateReleased = prDateReleased
-        self.ratingLabel = prRating
-        
-    }
-    
-}
-
-
+import WebKit
 
 class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var moviesArray = [Movie]()
     @IBOutlet weak var tableView: UITableView!
+    
     var movies = [[String:Any]]()
 
     override func viewDidLoad() {
@@ -50,30 +33,22 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
               // TODO: Get the array of movies
             self.movies = dataDictionary["results"] as! [[String : Any]]
-            for movie in self.movies {
-                var finalMovie = Movie(prName: movie["title"] as! String, prDescription: movie["overview"] as! String, prDateReleased: movie["release_date"] as! String, prRating: movie["vote_average"] as! Double)
-                self.moviesArray.append(finalMovie)
-            }
             self.tableView.reloadData()
             
-
            }
         }
         task.resume()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    func filterList() {
-        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //designates the number of rows in the table view
         return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //pulls into a custom cell class called Movie Cell and populate the information based on the API call
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
         let movie = movies[indexPath.row]
         let title = movie["title"] as! String
@@ -83,24 +58,29 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let baseUrl = "https://image.tmdb.org/t/p/w185/"
         let posterPath = movie["poster_path"] as! String
         let posterUrl = URL(string: baseUrl + posterPath)
-        let rating = movie["vote_average"] as! Double
-        let image = cell.posterView.af_setImage(withURL: posterUrl!)
+        cell.posterView.af.setImage(withURL: posterUrl!)
         return cell
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       performSegue(withIdentifier: "showDetail", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? OneMovieViewController {
-            destination.movieInfo =  moviesArray[(tableView.indexPathForSelectedRow!.row)]
-            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
-        }
+        
+        //find selected movie
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+        
+        
+        //pass the selected movie to the details view controller
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        detailsViewController.movie = movie
+        
+        //deselect the chosen row so it doesn't stay gray after selection
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     
+
     
 
 }
