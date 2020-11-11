@@ -32,7 +32,7 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 - [x] Made text scrollable in details page.
 
 ### App Walkthrough GIF
-<img src="http://g.recordit.co/JyP0axSUIZ.gif" width=250><br>
+<img src="http://g.recordit.co/lUMBlyfrIW.gif" width=250><br>
 
 ### Notes
 Some challenges I faced while building the app:
